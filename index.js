@@ -7,7 +7,7 @@
 function calculator() {
    let result;
 
-   if (Process.argv.length <= 2) {
+   if (process.argv.length <= 2) {
     return "No operation provided...";
    }
    else if (process.argv.length == 3) {
