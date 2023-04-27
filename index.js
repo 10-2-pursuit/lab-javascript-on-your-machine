@@ -4,7 +4,37 @@
  * Depending on the operation, either add up all of the numbers or subtract all of the numbers, from left to right.
  * @returns {number} The result of either adding all numbers or subtracting all numbers, depending on the arguments added to the command line.
  */
-function calculator() {}
-
+ffunction calculator() {
+    const operation = process.argv[2];
+    const numbers = process.argv.slice(3).map(parseFloat);
+  
+    if (numbers.length === 0) {
+      return "No numbers provided...";
+    }
+  
+    if (!operation) {
+      return "No operation provided...";
+    }
+  
+    if (operation !== 'plus' && operation !== 'minus') {
+      return `Invalid operation: ${operation}`;
+    }
+  
+    if (numbers.some(isNaN)) {
+      return "This input is not a number";
+    }
+  
+    let result = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+      if (operation === 'plus') {
+        result += numbers[i];
+      } else if (operation === 'minus') {
+        result -= numbers[i];
+      }
+    }
+  
+    return result;
+  }
+  
 // Don't change anything below this line.
 module.exports = calculator;
