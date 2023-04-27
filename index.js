@@ -27,19 +27,11 @@ function calculator() {
     if (operator == "minus") {
         result = startingNum - operatingNum
     }
-   
-    
-
-    // // console.log(startingNum)
-    // // console.log(operatingNum)
-    // // console.log(result) 
     return result
 
 }
 
 
-// console.log(numbers)
-// console.log(operator)
 calculator()
 
 // Don't change anything below this line.
