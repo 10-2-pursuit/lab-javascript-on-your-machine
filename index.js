@@ -3,24 +3,27 @@
  * The first argument passed after the filename should be either "plus" or "minus", which represents the kind of calculation that will be done. Every argument afterwards should be a number.
  * Depending on the operation, either add up all of the numbers or subtract all of the numbers, from left to right.
  * @returns {number} The result of either adding all numbers or subtracting all numbers, depending on the arguments added to the command line.
- */function calculator() {
+ */
+
+function calculator() {
   const operation = process.argv[2];
+
+  if (!operation) {
+    return "No operation provided...";
+  }
+
   const numbers = [];
   for (let i = 3; i < process.argv.length; i++) {
     const number = Number(process.argv[i]);
     if (!isNaN(number)) {
       numbers.push(number);
     } else {
-      return "This input is not a number";
+      return "No numbers provioded...";
     }
   }
 
   if (numbers.length === 0) {
     return "No numbers provided...";
-  }
-
-  if (!operation) {
-    return "No operation provided...";
   }
 
   if (operation !== 'plus' && operation !== 'minus') {
