@@ -6,15 +6,30 @@
  */
 function calculator ()
 {
-    let result;
-    if (process.argv[2] !== "plus" || process.argv[2] !== "minus") {
+
+    let result = 0;
+    if ( process.argv[ 2 ] !== "plus" || process.argv[ 2 ] !== "minus" )
+    {
         result = "No operation provided..."
     }
-    if ( process.argv[ 3 ] && process.argv[ 4 ] === NaN ) {
-       result = "No numbers provided..."
-    } 
-    return result
+    if ( Number( process.argv[ 3 ] ) === undefined || Number( process.argv[ 4 ] ) === undefined )
+    {
+        result = "No numbers provided..."
+    }
+    if ( process.argv[ 2 ] === "multiply" )
+    {
+        result = "Invalid operation: multiply"
+    }
+    if (process.argv[2] === "divide") {
+        result = "Invalid operation: divide"    
+    }
+    if ( process.argv[ 2 ] === "modulo" )
+    {
+        result = "Invalid operation: modulo"
+    }    
+   
+   
+    return result;
 }
-
 // Don't change anything below this line.
 module.exports = calculator;
