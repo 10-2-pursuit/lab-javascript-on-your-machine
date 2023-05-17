@@ -6,13 +6,13 @@
  */
 function calculator ()
 {
-
     let result = 0;
-    if ( process.argv[ 2 ] !== "plus" || process.argv[ 2 ] !== "minus" )
+
+    if ( process.argv[ 2 ] !== 'plus' || process.argv[ 2] !== 'minus')
     {
         result = "No operation provided..."
     }
-    if ( Number( process.argv[ 3 ] ) === undefined || Number( process.argv[ 4 ] ) === undefined )
+    if ( Number( process.argv[ 3 ] ) !== "number" || Number( process.argv[ 4 ] ) !== "number" )
     {
         result = "No numbers provided..."
     }
@@ -28,8 +28,24 @@ function calculator ()
         result = "Invalid operation: modulo"
     }    
    
-   
+    const plus = ( ( a, b ) =>
+    {
+       result = a + b;
+        return result
+    } )
+    const minus = ( ( a, b ) =>
+    {
+        result = a - b
+        return result
+    } )
+    
+    let operation1 = plus
+    let operation2 = minus
+    let numbers = [process.argv[3], process.argv[4], ...arguments]
+    process.argv.push(operation1, operation2, ...numbers)
     return result;
 }
+
+
 // Don't change anything below this line.
 module.exports = calculator;
